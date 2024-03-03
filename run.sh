@@ -52,15 +52,16 @@ ghcProfile="/usr/local/bin/ghc -i$HOME/myfile/bitbucket/haskelllib -prof -fprof-
 # stack build OpenGLFont 
 # stack exec OpenGLFont 
 
+name="haskell-OpenGLFont"
 if [[ "$#" -eq 1 ]];then
     
     # KEY: build only
     if [[ "$1" == 'c' ]]; then 
 	    # stack build OpenGLFont 
         # -- * compile this source file with @ghc -O --make -threaded@
-        stack build OpenGLFont 
+        stack build $name 
         printcText 'Build only'
     fi
 else
-    stack build OpenGLFont && stack exec OpenGLFont
+    stack build $name && stack exec $name 
 fi
